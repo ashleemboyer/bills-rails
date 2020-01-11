@@ -24,11 +24,16 @@ class BillsController < ApplicationController
   # POST /bills
   # POST /bills.json
   def create
-    @bill = Bill.new(bill_params)
+    new_bill_params = bill_params
+    new_bill_params[:due_amount] = bill_params[:due_amount].to_f * 100
+
+    new_bill_params[:paid_date] = nil
+
+    @bill = Bill.new(new_bill_params)
 
     respond_to do |format|
       if @bill.save
-        format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
+        format.html { redirect_to "/", notice: 'Bill was successfully created.' }
         format.json { render :show, status: :created, location: @bill }
       else
         format.html { render :new }
@@ -40,9 +45,17 @@ class BillsController < ApplicationController
   # PATCH/PUT /bills/1
   # PATCH/PUT /bills/1.json
   def update
+    update_bill_params = bill_params
+    
+    puts "=====> BEFORE #{update_bill_params[:due_amount]}"
+    update_bill_params[:due_amount] = bill_params[:due_amount].to_f * 100
+    puts "=====> AFTER #{update_bill_params[:due_amount]}"
+
+    update_bill_params[:paid_amount] = bill_params[:paid_amount].to_f * 100
+
     respond_to do |format|
-      if @bill.update(bill_params)
-        format.html { redirect_to @bill, notice: 'Bill was successfully updated.' }
+      if @bill.update(update_bill_params)
+        format.html { redirect_to "/", notice: 'Bill was successfully updated.' }
         format.json { render :show, status: :ok, location: @bill }
       else
         format.html { render :edit }

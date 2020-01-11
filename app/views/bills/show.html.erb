@@ -1,38 +1,32 @@
 <p id="notice"><%= notice %></p>
 
+<h1>
+  <a href="<%= @bill.url %>%" target="_blank"><%= @bill.name %></a>
+  $<%= '%.2f' % @bill.due_amount %>
+</h1>
+
 <p>
-  <strong>Name:</strong>
-  <%= @bill.name %>
+  <strong>Due date:</strong>
+  <%= @bill.due_date.strftime("%m/%d") %>
+</p>
+
+<p>
+  <strong>Paid date:</strong>
+  <% if @bill.paid? %>
+    <%= @bill.paid_date.strftime("%m/%d") %>
+  <% else %>
+    &mdash;
+  <% end %>
+</p>
+
+<p>
+  <strong>Paid amount:</strong>
+  $<%= '%.2f' % @bill.paid_amount %>
 </p>
 
 <p>
   <strong>Notes:</strong>
   <%= @bill.notes %>
-</p>
-
-<p>
-  <strong>Due amount:</strong>
-  <%= @bill.due_amount %>
-</p>
-
-<p>
-  <strong>Due date:</strong>
-  <%= @bill.due_date %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @bill.url %>
-</p>
-
-<p>
-  <strong>Paid date:</strong>
-  <%= @bill.paid_date %>
-</p>
-
-<p>
-  <strong>Paid amount:</strong>
-  <%= @bill.paid_amount %>
 </p>
 
 <%= link_to 'Edit', edit_bill_path(@bill) %> |

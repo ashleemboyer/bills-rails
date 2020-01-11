@@ -6,12 +6,11 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Notes</th>
-      <th>Due amount</th>
       <th>Due date</th>
-      <th>Url</th>
+      <th>Due amount</th>
       <th>Paid date</th>
       <th>Paid amount</th>
+      <th>Notes</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,13 +18,19 @@
   <tbody>
     <% @bills.each do |bill| %>
       <tr>
-        <td><%= bill.name %></td>
+        <td><a href="<%= bill.url %>" target="_blank"><%= bill.name %></a></td>
+        <td><%= bill.due_date.strftime("%m/%d") %></td>
+        <td>$<%= '%.2f' % bill.due_amount %></td>
+        <td>
+          <% if bill.paid? %>
+            <%= bill.paid_date.strftime("%m/%d") %>
+          <% else %>
+            &mdash;
+          <% end %>
+        </td>
+        <td>$<%= '%.2f' % bill.paid_amount %></td>
         <td><%= bill.notes %></td>
-        <td><%= bill.due_amount %></td>
-        <td><%= bill.due_date %></td>
-        <td><%= bill.url %></td>
-        <td><%= bill.paid_date %></td>
-        <td><%= bill.paid_amount %></td>
+
         <td><%= link_to 'Show', bill %></td>
         <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
         <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>

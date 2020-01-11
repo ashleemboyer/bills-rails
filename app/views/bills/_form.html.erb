@@ -17,33 +17,33 @@
   </div>
 
   <div class="field">
-    <%= form.label :notes %>
-    <%= form.text_area :notes, id: :bill_notes %>
-  </div>
-
-  <div class="field">
-    <%= form.label :due_amount %>
-    <%= form.number_field :due_amount, id: :bill_due_amount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :due_date %>
-    <%= form.datetime_select :due_date, id: :bill_due_date %>
-  </div>
-
-  <div class="field">
     <%= form.label :url %>
     <%= form.text_field :url, id: :bill_url %>
   </div>
 
   <div class="field">
-    <%= form.label :paid_date %>
-    <%= form.datetime_select :paid_date, id: :bill_paid_date %>
+    <%= form.label :due_amount %>
+    <%= form.number_field :due_amount, step: :any, id: :bill_due_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :due_date %>
+    <%= form.date_select :due_date, id: :bill_due_date %>
   </div>
 
   <div class="field">
     <%= form.label :paid_amount %>
     <%= form.number_field :paid_amount, id: :bill_paid_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :paid_date %>
+    <%= form.date_select :paid_date, id: :bill_paid_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, id: :bill_notes %>
   </div>
 
   <div class="actions">
