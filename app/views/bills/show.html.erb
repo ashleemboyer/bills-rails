@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bill.name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @bill.notes %>
+</p>
+
+<p>
+  <strong>Due amount:</strong>
+  <%= @bill.due_amount %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @bill.due_date %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @bill.url %>
+</p>
+
+<p>
+  <strong>Paid date:</strong>
+  <%= @bill.paid_date %>
+</p>
+
+<p>
+  <strong>Paid amount:</strong>
+  <%= @bill.paid_amount %>
+</p>
+
+<%= link_to 'Edit', edit_bill_path(@bill) %> |
+<%= link_to 'Back', bills_path %>

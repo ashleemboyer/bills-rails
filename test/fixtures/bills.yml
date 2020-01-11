@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  notes: MyText
+  due_amount: 1
+  due_date: 2020-01-11 17:18:45
+  url: MyString
+  paid_date: 2020-01-11 17:18:45
+  paid_amount: 1
+
+two:
+  name: MyString
+  notes: MyText
+  due_amount: 1
+  due_date: 2020-01-11 17:18:45
+  url: MyString
+  paid_date: 2020-01-11 17:18:45
+  paid_amount: 1
