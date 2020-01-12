@@ -1,29 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Accounts</h1>
+<div class="title">
+  <h1>Accounts</h1>
+  <%= link_to new_account_path do %>
+    <%= fa_icon "plus-circle", class: "fa-3x" %>
+  <% end %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @accounts.each do |account| %>
-      <tr>
-        <td><%= account.name %></td>
-        <td><%= account.url %></td>
-        <td><%= link_to 'Show', account %></td>
-        <td><%= link_to 'Edit', edit_account_path(account) %></td>
-        <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Account', new_account_path %>
+<% @accounts.order(:name).each do |account| %>
+  <%= link_to account do %>
+    <div class="card">
+      <div class="card-title">
+        <h2><%= account.name %></h2>
+      </div>
+      <div>
+        <a href="<%= account.url %>" target="_blank">Visit</a>
+      </div>
+    </div>
+  <% end %>
+<% end %>
