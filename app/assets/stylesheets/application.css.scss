@@ -20,6 +20,24 @@
   color: #000;
 }
 
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  padding: 24px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(to bottom, #ff94c2, #80deea);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 h1 {
   font-size: 3rem;
   line-height: 3rem;
@@ -54,4 +72,16 @@ i {
 
 .fc-g {
   color: green;
+}
+
+nav {
+  a {
+    font-size: 1rem;
+    margin-right: 8px;
+    text-decoration: underline;
+
+    &:visited {
+      color: #000;
+    }
+  }
 }
