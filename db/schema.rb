@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20200112155035) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.string "url"
@@ -30,7 +33,7 @@ ActiveRecord::Schema.define(version: 20200112155035) do
     t.datetime "updated_at", null: false
     t.boolean "recurring"
     t.boolean "automatic"
-    t.integer "account_id"
+    t.bigint "account_id"
     t.index ["account_id"], name: "index_bills_on_account_id"
   end
 
