@@ -32,6 +32,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :recurring %>
+    <%= form.check_box :recurring, id: :bill_recurring %>
+  </div>
+
+  <div class="field">
+    <%= form.label :automatic %>
+    <%= form.check_box :automatic, id: :bill_automatic %>
+  </div>
+
+  <div class="field">
     <%= form.label :paid_amount %>
     <%= form.number_field :paid_amount, id: :bill_paid_amount %>
   </div>
