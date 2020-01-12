@@ -87,6 +87,6 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:name, :notes, :url, :due_amount, :due_date, :paid_date, :paid_amount, :recurring, :automatic)
+      params.require(:bill).permit(:name, :notes, :due_amount, :due_date, :paid_date, :paid_amount, :recurring, :automatic, :account_id)
     end
 end

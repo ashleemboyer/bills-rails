@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>
-  <a href="<%= @bill.url %>%" target="_blank"><%= @bill.name %></a>
+  <%= @bill.name %>
   $<%= '%.2f' % @bill.due_amount %>
 </h1>
 

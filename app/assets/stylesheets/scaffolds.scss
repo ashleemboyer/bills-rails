@@ -7,10 +7,7 @@ body {
   line-height: 18px;
 }
 
-p,
-ol,
-ul,
-td {
+p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -35,20 +32,16 @@ a {
   }
 }
 
-table {
-  border-collapse: collapse;
+th {
+  padding-bottom: 5px;
 }
 
-th,
 td {
-  padding: 8px;
-  border: 1px solid black;
-  font-size: 1rem;
+  padding: 0 5px 7px;
 }
 
 div {
-  &.field,
-  &.actions {
+  &.field, &.actions {
     margin-bottom: 10px;
   }
 }

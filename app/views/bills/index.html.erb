@@ -18,7 +18,7 @@
   <tbody style="text-align: center;">
     <% @bills.order(:due_date).each do |bill| %>
       <tr>
-        <td style="text-align: left;"><a href="<%= bill.url %>" target="_blank"><%= bill.name %></a></td>
+        <td style="text-align: left;"><%= bill.name %></td>
         <td><%= bill.due_date.strftime("%m/%d") %></td>
         <td style="text-align: right;">$<%= '%.2f' % bill.due_amount %></td>
         <td>

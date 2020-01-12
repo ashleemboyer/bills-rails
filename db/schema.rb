@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200112151720) do
+ActiveRecord::Schema.define(version: 20200112155035) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "bills", force: :cascade do |t|
     t.string "name"
     t.text "notes"
-    t.string "url"
     t.integer "due_amount"
     t.datetime "due_date"
     t.datetime "paid_date"
@@ -24,6 +30,8 @@ ActiveRecord::Schema.define(version: 20200112151720) do
     t.datetime "updated_at", null: false
     t.boolean "recurring"
     t.boolean "automatic"
+    t.integer "account_id"
+    t.index ["account_id"], name: "index_bills_on_account_id"
   end
 
 end
