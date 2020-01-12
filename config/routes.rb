@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       patch :pay
     end
   end
-  
+
   root "bills#index"
 
 end
