@@ -16,7 +16,7 @@
   </thead>
 
   <tbody style="text-align: center;">
-    <% @bills.each do |bill| %>
+    <% @bills.order(:due_date).each do |bill| %>
       <tr>
         <td style="text-align: left;"><a href="<%= bill.url %>" target="_blank"><%= bill.name %></a></td>
         <td><%= bill.due_date.strftime("%m/%d") %></td>
@@ -32,7 +32,6 @@
         <td style="text-align: left;"><%= bill.notes %></td>
 
         <td><%= link_to 'Show', bill %></td>
-        <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
         <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

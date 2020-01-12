@@ -1,5 +1,5 @@
 class BillsController < ApplicationController
-  before_action :set_bill, only: [:show, :edit, :update, :destroy]
+  before_action :set_bill, only: [:show, :edit, :update, :destroy, :pay]
 
   # GET /bills
   # GET /bills.json
@@ -72,6 +72,11 @@ class BillsController < ApplicationController
       format.html { redirect_to bills_url, notice: 'Bill was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def pay
+    @bill.update({ paid_date: Time.now, paid_amount: @bill[:due_amount] })
+    redirect_to bills_url, notice: 'Bill was successfully paid'
   end
 
   private
