@@ -17,7 +17,7 @@
 
 * {
   box-sizing: border-box;
-  color: #000;
+  color: #212121;
 }
 
 html,
@@ -62,6 +62,16 @@ h6 {
 
 a {
   text-decoration: none;
+
+  &:hover {
+    background-color: transparent;
+    cursor: pointer;
+    color: #212121;
+  }
+
+  &:visited {
+    color: #212121;
+  }
 }
 
 i {
@@ -79,10 +89,6 @@ nav {
     font-size: 1rem;
     margin-right: 8px;
     text-decoration: underline;
-
-    &:visited {
-      color: #000;
-    }
   }
 }
 
@@ -106,10 +112,23 @@ nav {
   font-size: 1rem;
   background-color: #fff;
 
+  h2 {
+    font-size: 2rem;
+    margin: 0;
+  }
+
   .card-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 12px;
+  }
+
+  .card-actions {
+    a {
+      font-size: 1.4rem;
+      margin-left: 4px;
+      color: #212121;
+    }
   }
 }

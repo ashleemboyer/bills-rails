@@ -8,14 +8,20 @@
 </div>
 
 <% @accounts.order(:name).each do |account| %>
-  <%= link_to account do %>
-    <div class="card">
-      <div class="card-title">
-        <h2><%= account.name %></h2>
-      </div>
-      <div>
-        <a href="<%= account.url %>" target="_blank">Visit</a>
+  <div class="card">
+    <div class="card-title">
+      <h2><%= account.name %></h2>
+      <div class="card-actions">
+        <%= link_to edit_account_path(account) do %>
+          <%= fa_icon "pencil" %>
+        <% end %>
+        <%= link_to account, method: :delete, data: { confirm: "Are you sure?" } do %>
+          <%= fa_icon "trash" %>
+        <% end %>
       </div>
     </div>
-  <% end %>
+    <div>
+      <a href="<%= account.url %>" target="_blank">Visit <%= fa_icon "external-link" %></a>
+    </div>
+  </div>
 <% end %>
