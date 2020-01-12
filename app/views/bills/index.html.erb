@@ -1,43 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Bills</h1>
+<div class="bills-title">
+  <h1>Bills</h1>
+  <%= link_to new_bill_path do %>
+    <%= fa_icon "plus-circle", class: "fa-3x" %>
+  <% end %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left;">Name</th>
-      <th>Due date</th>
-      <th>Due amount</th>
-      <th>Paid date</th>
-      <th>Paid amount</th>
-      <th>Notes</th>
-      <th colspan="3">Actions</th>
-    </tr>
-  </thead>
-
-  <tbody style="text-align: center;">
-    <% @bills.order(:due_date).each do |bill| %>
-      <tr>
-        <td style="text-align: left;"><%= bill.name %></td>
-        <td><%= bill.due_date.strftime("%m/%d") %></td>
-        <td style="text-align: right;">$<%= '%.2f' % bill.due_amount %></td>
-        <td>
-          <% if bill.paid? %>
-            <%= bill.paid_date.strftime("%m/%d") %>
-          <% else %>
-            &mdash;
-          <% end %>
-        </td>
-        <td style="text-align: right;">$<%= '%.2f' % bill.paid_amount %></td>
-        <td style="text-align: left;"><%= bill.notes %></td>
-
-        <td><%= link_to 'Show', bill %></td>
-        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Bill', new_bill_path %>
+<% @bills.order(:due_date).each do |bill| %>
+  <%= link_to bill do %>
+    <div class="bill-card">
+      <div class="bill-card-title">
+        <h2><%= bill.account_name %></h2>
+        <% if bill.paid? %>
+          <%= fa_icon "check", class: "fa-2x fc-g" %>
+        <% end %>
+      </div>
+      <div>
+        <span class="due">$<%= '%.2f' % bill.due_amount %></span>
+        <% if bill.paid? %>
+          paid on the <%= bill.paid_date.day.ordinalize %>
+        <% else %>
+          due on the <%= bill.due_date.day.ordinalize %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

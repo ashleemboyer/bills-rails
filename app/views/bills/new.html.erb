@@ -19,6 +19,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :account %>
+    <%= form.collection_select :account_id, Account.order(:name), :id, :name %>
+  </div>
+
+  <div class="field">
     <%= form.label :due_amount %>
     <%= form.number_field :due_amount, step: :any, id: :bill_due_amount %>
   </div>
@@ -26,11 +31,6 @@
   <div class="field">
     <%= form.label :due_date %>
     <%= form.date_select :due_date, id: :bill_due_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.text_field :url, id: :bill_url %>
   </div>
 
   <div class="actions">

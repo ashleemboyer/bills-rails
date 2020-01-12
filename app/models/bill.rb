@@ -1,5 +1,9 @@
 class Bill < ApplicationRecord
 
+  def account_name
+    Account.find(account_id).name
+  end
+
   def paid?
     paid_date.present? && paid_amount == due_amount
   end

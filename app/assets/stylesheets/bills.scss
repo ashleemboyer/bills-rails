@@ -1,3 +1,35 @@
-// Place all the styles related to the bills controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.bills-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.bill-card {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-size: 1rem;
+
+  .bill-card-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  .due {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+}
